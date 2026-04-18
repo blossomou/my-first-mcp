@@ -16,14 +16,16 @@ const server = new McpServer(
   },
 );
 
-server.tool(
+server.registerTool(
   'add-numbers',
-  'Add two numbers',
-
   {
-    a: z.number().describe('First number'),
-    b: z.number().describe('Second number'),
+    description: 'Add two numbers',
+    inputSchema: {
+      a: z.number().describe('First number'),
+      b: z.number().describe('Second number'),
+    },
   },
+
   ({ a, b }) => {
     return {
       content: [{ type: 'text', text: `Total is ${a + b}` }],
@@ -31,13 +33,15 @@ server.tool(
   },
 );
 
-server.tool(
+server.registerTool(
   'get_github_repos',
-  'Get Github repositories from the given username',
-
   {
-    username: z.string().describe('Github username'),
+    description: 'Get Github repositories from the given username',
+    inputSchema: {
+      username: z.string().describe('Github username'),
+    },
   },
+
   async ({ username }) => {
     const res = await fetch(`https://api.github.com/users/${username}/repos`, {
       headers: { 'User-Agent': 'MCP-Server' },
