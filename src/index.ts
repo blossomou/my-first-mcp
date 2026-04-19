@@ -98,6 +98,29 @@ server.registerResource(
   },
 );
 
+server.registerPrompt(
+  'explain-sql',
+  {
+    description: 'Explain the given SQL query',
+    argsSchema: {
+      sql: z.string().describe('The SQL query to explain'),
+    },
+  },
+  ({ sql }) => {
+    return {
+      messages: [
+        {
+          role: 'user',
+          content: {
+            type: 'text',
+            text: `Give me a detailed explanation of the following SQL query in plain Englis: ${sql} Make it very detailed and specific for a beginner to understand`,
+          },
+        },
+      ],
+    };
+  },
+);
+
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
