@@ -1,0 +1,14 @@
+{
+    id: 1,
+    category: "Noise",
+    title: "Quiet Hours",
+    rule: "Maintain quiet after 22:00 (10 PM) until 08:00 (8 AM)",
+    description: "Loud music, parties, or excessive noise during these hours may result in complaints and penalities.",
+},
+{
+    id: 2,
+    category: "Pets",
+    title: "No Pets Allowed",
+    rule: "Pets are strictly prohibited in the apartment",
+    description: "No dogs, cats, birds, or any other animals are permitted. Service animals require prior approval and documentation.,
+}
