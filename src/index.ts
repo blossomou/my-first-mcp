@@ -69,7 +69,7 @@ server.registerTool(
   },
 );
 
-server.resource(
+server.registerResource(
   'apartment-rules',
   'rules://all',
   {
